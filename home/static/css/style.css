@@ -87,7 +87,6 @@ li.results {
 .background { /*Furthest white background*/
 /*	background-image: url("images/background2.jpg");
 */
-    height: 100%;
 	background-color: #DEDEDE;
     background-attachment: fixed;
 	padding-bottom: 20px;
@@ -101,8 +100,9 @@ li.results {
 	margin-left: 10%;
 	margin-right: 10%;
 	margin-bottom: 2%;
+	margin-top: 2%;
 	padding-left: 10%;
-	padding-right: 10%;
+	padding-right: 10%;	
 	padding-bottom: 2%;
 	border-radius: 25px;
 }
