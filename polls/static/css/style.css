@@ -1,0 +1,75 @@
+ul { /*for the nav bar*/
+    list-style-type: none; /*removes bullet points*/
+    margin: 0;
+    padding: 0;
+	padding-left: 10%;
+    overflow: hidden;
+    background-color: #052C42;
+    top: 0; /*very top of the page*/
+    position: fixed; /* Stays at the top of the page */
+    width: 100%;
+}
+
+li {
+	float: left;
+	border-left: 1px solid #bbb;
+}
+
+li:last-child {
+    border-right: 1px solid #bbb;
+}
+
+li a {
+	display: block;
+	color: white;
+	padding: 8px;
+	background-color: red;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #073B59;
+}
+
+h1 {
+	margin-top: 0;
+	padding-top: 10px;
+}
+
+p {
+	text-align: justify;
+}
+
+
+.title {
+	padding-top: 8%;
+	text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    color: #3F5B6B;
+}
+
+
+.background { /*Furthest white background*/
+/*	background-image: url("images/background2.jpg");
+*/
+	height: auto !important; /*Fills the box to the bottom*/
+	background-color: #DEDEDE;
+	height: 100%;
+	padding-bottom: 20px;
+}
+
+.main_container {
+	background-color: #ccccff;
+	height: auto !important; /*Fills the box to the bottom*/
+	height: 100%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 2%;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 2%;
+	border-radius: 25px;
+}
+
+/*    
+*/

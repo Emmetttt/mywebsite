@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Homepage</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <nav>
+    	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/polls/">Polls</a></li>
+		<li><a href="news">CV</a></li>
+		<li><a href="contact.asp">Food Blog</a></li>
+		<li><a href="about.asp">About</a></li>
+		</ul>
+    </nav>
+
+
+    <body>
+    	<section class='background'>
+    		<section class='main_container'>
+		        <div>
+		            <h1 class="title">
+		            Polls
+		            </h1>
+					<h2>
+					{{ question.question_text }}
+					</h2>
+					<ul>
+					{% for choice in question.choice_set.all %}
+					    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+					{% endfor %}
+					</ul>
+
+					<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+		        </div>
+		    </section>
+        </section>
+    </body>
+</html>
+
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>

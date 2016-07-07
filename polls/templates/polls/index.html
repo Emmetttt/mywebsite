@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Homepage</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <nav>
+    	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/polls/">Polls</a></li>
+		<li><a href="news">CV</a></li>
+		<li><a href="contact.asp">Food Blog</a></li>
+		<li><a href="about.asp">About</a></li>
+		</ul>
+    </nav>
+
+
+    <body>
+    	<section class='background'>
+    		<section class='main_container'>
+		        <div>
+		            <h1 class="title">
+		            Polls
+		            </h1>
+		            <p class="text-center">
+		            This is the homepage for creating or viewing polls. Navigate the newest polls on the left, or create a poll using the create button on the right.
+		            </p>
+		            <section class='poll_list'>
+		            	<h1 class="subtitle">
+		            	Newest Polls
+		            	</h1>
+			            {% if latest_question_list %}
+						    <p>
+						    {% for question in latest_question_list %}
+						        <li><a class="questions" href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+						        <li class="results"><a class="results" href="{% url 'polls:results' question.id %}">Results</a></li>
+						    {% endfor %}
+						    </p>
+						{% else %}
+						    <p>No polls are available.</p>
+						{% endif %}
+					</section>
+					<a class="create_poll_green" href="{% url 'polls:create' %}">
+					Create Poll!
+					</a>
+		        </div>
+		    </section>
+        </section>
+    </body>
+</html>
+
+            <!-- <h1><a href="">BlahBlah</a></h1> -->

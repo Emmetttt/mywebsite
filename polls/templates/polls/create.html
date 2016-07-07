@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Homepage</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <nav>
+        <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/polls/">Polls</a></li>
+        <li><a href="news">CV</a></li>
+        <li><a href="contact.asp">Food Blog</a></li>
+        <li><a href="about.asp">About</a></li>
+        </ul>
+    </nav>
+
+    <body>
+        <section class='background'>
+            <section class='main_container'>
+                <div>
+                    <h1 class="title">
+                    Polls
+                    </h1>
+                    <p class="text-center">
+                    This is the homepage for creating or viewing polls. Navigate the newest polls on the left, or create a poll using the create button on the right.
+                    </p>
+                    <form>
+                        <br>
+                        <div class="input_question_title">
+                            <input type="text" placeholder="Type your question in here" name="input_question">
+                        </div>
+                        <br><br>
+                        <br><br>
+                        <input type="text" placeholder="Enter Poll Option 1" name="input_answer1">
+                        <br><br>
+                        <input type="text" placeholder="Enter Poll Option 2" name="input_answer2">
+                        <br><br>
+                        <input type="text" placeholder="Enter Poll Option 3" name="input_answe3"><br>
+                    </form>
+                    <div style="text-align:center;">
+                        <a class="create_poll_button" href="{% url 'polls:create' %}">
+                        Create Poll!
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </body>
+</html>

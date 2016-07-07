@@ -1,0 +1,180 @@
+nav ul { /*for the nav bar*/
+    list-style-type: none; /*removes bullet points*/
+    margin: 0;
+    padding: 0;
+	padding-left: 10%;
+    overflow: hidden;
+    background-color: #052C42;
+    top: 0; /*very top of the page*/
+    position: fixed; /* Stays at the top of the page */
+    width: 100%;
+}
+
+nav li {
+	float: left;
+	border-left: 1px solid #bbb;
+}
+
+nav li:last-child {
+    border-right: 1px solid #bbb;
+}
+
+nav li a {
+	display: block;
+	color: white;
+	padding: 8px;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+    background-color: #073B59;
+}
+
+h1 {
+	margin-top: 0;
+	padding-top: 10px;
+}
+
+p {
+	text-align: justify;
+}
+
+form {
+	text-align: center;
+	background-color: #DEDEDE;
+	border-radius: 25px;
+}
+
+form input {
+	border: none;
+    background: transparent;
+	text-align: center;
+/*	padding-left: 30%;
+	padding-right: 30%;
+*/}
+
+input:focus {
+    outline:none;
+}
+
+.title {
+	padding-top: 8%;
+	text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    color: #3F5B6B;
+}
+
+.subtitle {
+	padding-top: 3%;
+	text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    color: #3F5B6B;
+    font-size: 24;
+}
+
+.questions {
+    font-size: 18;
+}
+
+.results {
+    font-size: 12;
+}
+
+li.results {
+	padding-bottom: 20px;
+}
+
+.background { /*Furthest white background*/
+/*	background-image: url("images/background2.jpg");
+*/
+    height: 100%;
+	background-color: #DEDEDE;
+    background-attachment: fixed;
+	padding-bottom: 20px;
+	margin: 0;
+}
+
+.main_container {
+	background-color: #ccccff;
+	height: auto !important; /*Fills the box to the bottom*/
+	height: 100%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 2%;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 2%;
+	border-radius: 25px;
+}
+
+.poll_list {
+	background-color: #DEDEDE;
+	height: auto !important; /*Fills the box to the bottom*/
+	width: 50%;
+	border-radius: 15px;
+	border: 3px solid #052C42;
+	margin-top: 6%;
+    list-style-type: none; /*removes bullet points*/
+    padding-left: 4%;
+	text-align: center;
+}
+
+.create_poll_green { /*found on /polls/ to prompt user to create*/
+	background-color: #4CAF50;
+	box-shadow: 3px 3px 2px #888888; /*h-shadow v-shadow blur spread color*/
+	border-radius: 15px;
+	border: 2px solid #052C42;
+	width: 25%;
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    color: white;
+    padding-top: 7px;
+    padding-bottom: 4px;
+    font-size: 30;
+	text-align: center;
+	font-weight: 30;
+}
+
+.create_poll_green:hover {
+	background-color: #3e8e41;
+}
+
+.create_poll_green:active {
+  background-color: #3e8e41;
+  box-shadow: 3px 3px 2px #888888;
+  transform: translateY(4px);
+}
+
+.create_poll_green:focus {outline:0;}
+
+.input_question_title {
+/*	background-color: #073B59;
+*/	padding: 0 20px;
+}
+
+.create_poll_button { /*found on /polls/create, actually inputted into database*/
+	background-color: #4CAF50;
+	box-shadow: 3px 3px 2px #888888; /*h-shadow v-shadow blur spread color*/
+	border-radius: 15px;
+	border: 2px solid #052C42;
+	width: 35%;
+    color: white;
+    padding-top: 7px;
+    padding-bottom: 4px;
+    font-size: 30;
+	font-weight: 30;
+    position: absolute;
+}
+
+.create_poll_button:hover {
+	background-color: #3e8e41;
+}
+
+.create_poll_button:active {
+  background-color: #3e8e41;
+  box-shadow: 3px 3px 2px #888888;
+  transform: translateY(4px);
+}
+
+.create_poll_button:focus {outline:0;}
