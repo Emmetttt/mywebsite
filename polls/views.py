@@ -83,7 +83,7 @@ def poll_create(request):
                 choice.author = request.user
                 choice.question = question
                 choice.save()
-                return redirect('polls:detail', pk=question.pk)
+            return redirect('polls:detail', pk=question.pk)
     else:
         Qform = QuestionForm()
         Cform = [ChoiceForm(prefix=str(x)) for x in range(0,3)]
