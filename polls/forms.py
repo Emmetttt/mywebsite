@@ -1,9 +1,18 @@
-# from django import forms
+from django import forms
 
-# from .models import Question
+from .models import Question,Choice 
 
-# class PostForm(forms.ModelForm):
 
-#     class Meta:
-#         model = Question
-#         fields = ('question_text', 'text')
+class QuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = ('question_text',)
+
+
+class ChoiceForm(forms.ModelForm):
+	class Meta:
+		model = Choice
+		fields = (
+			'choice_text',
+			'choice_text',
+			'choice_text',)

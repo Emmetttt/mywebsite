@@ -11,10 +11,10 @@
     {% endif %}
 	{% for post in posts %}
 		<div class="post">
-			<div class="date">
+			<h1 class="blog_post_title"><a href="{% url 'post_specific' pk=post.pk %}">{{ post.title }}</a></h1>
+			<h2 class="date">
 				{{ post.published_date }}
-			</div>
-			<h1><a href="{% url 'post_specific' pk=post.pk %}">{{ post.title }}</a></h1>
+			</h2>
 			<p>{{ post.text|linebreaksbr }}</p>
 		</div>
 	{% endfor %}

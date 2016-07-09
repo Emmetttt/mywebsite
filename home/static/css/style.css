@@ -41,8 +41,8 @@ p {
 
 form {
 	text-align: center;
-	background-color: #DEDEDE;
-	border-radius: 25px;
+/*	background-color: #DEDEDE;
+*/	border-radius: 25px;
 }
 
 form input {
@@ -70,6 +70,30 @@ input:focus {
     font-family: 'PT Sans', sans-serif;
     color: #3F5B6B;
     font-size: 24;
+}
+
+.blog_post_title {
+	padding-top: 3%;
+	text-align: left;
+    font-family: 'PT Sans', sans-serif;
+    color: #3F5B6B;
+    font-size: 26;
+}
+
+.post {
+	text-align: left;
+	padding-left: 3%;
+	padding-right: 3%;
+    background-color: #DEDEDE;
+    font-size: 18;
+	border-radius: 15px;
+	margin-bottom: 3%;
+	padding-bottom: 3%;
+}
+
+.date {
+	font-size: 12;
+	padding-bottom: 5%;
 }
 
 .questions {
@@ -104,7 +128,7 @@ li.results {
 	padding-left: 10%;
 	padding-right: 10%;	
 	padding-bottom: 2%;
-	border-radius: 25px;
+	border-radius: 0px 0px 25px 25px;
 }
 
 .poll_list {
@@ -112,7 +136,7 @@ li.results {
 	height: auto !important; /*Fills the box to the bottom*/
 	width: 50%;
 	border-radius: 15px;
-	border: 3px solid #052C42;
+	border: 3px solid #052C42;c
 	margin-top: 6%;
     list-style-type: none; /*removes bullet points*/
     padding-left: 4%;
