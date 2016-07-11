@@ -42,12 +42,6 @@ header {
 	padding: 20px 0;
 	margin-bottom: 20px;
 }
-#share_links img {
-	opacity: .6;
-}
-#share_links img:hover {
-	opacity: 1;
-}
 #nav {
 	clear: both;
 }
@@ -56,12 +50,8 @@ header {
 	font-size: 16px;
 }
 
-/*~~~~ HOME PAGE ~~~~*/
-.title {
-	padding: 20px 0;
-}
 /*~~~~ BLOG POSTS ~~~~*/
-.new-post, #bar {
+.new-post {
 	margin: 0;
 	padding: 0;
 	height: 22px;
@@ -88,11 +78,15 @@ header {
 	float: right;
 	font-size: 28px;
 }
-.date {
-	float: left;
+.date, .author {
+	float: right;
+	clear: both;
 	font-size: 14px;
 	font-style: italic;
 	padding-top: 7px;
+}
+.author {
+	font-style: initial;
 }
 .read_more {
 	float: right;
@@ -103,8 +97,7 @@ header {
 	font-style: italic;
 	margin-top: 10px;
 }
-
-#blog-navigation {
+#blog-navigation, #bar {
 	margin: 0;
 	padding: 0;
 	height: 22px;
@@ -127,6 +120,4 @@ header {
 .description {
 	font-style: italic;
 }
-
-
 
