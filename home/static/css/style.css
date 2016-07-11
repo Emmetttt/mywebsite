@@ -42,10 +42,10 @@ header {
 	padding: 20px 0;
 	margin-bottom: 20px;
 }
-#logo img {
+#share_links img {
 	opacity: .6;
 }
-#logo img:hover {
+#share_links img:hover {
 	opacity: 1;
 }
 #nav {
@@ -102,6 +102,30 @@ header {
 	color: white;
 	font-style: italic;
 	margin-top: 10px;
+}
+
+#blog-navigation {
+	margin: 0;
+	padding: 0;
+	height: 22px;
+	background-color: black;
+}
+#page-number, #blog-navigation a {
+	padding-top: 2px;
+	margin-left: 5px;
+	margin-right: 15px;
+	color: white;
+	font-size: 12px;
+	font-style: italic;
+}
+#page-number {
+	color: #b3b3b3;
+}
+#blog-navigation li {
+	display: inline-block;
+}
+.description {
+	font-style: italic;
 }
 
 
