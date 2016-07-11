@@ -7,6 +7,12 @@
             Create new post
         </a>
     </h2>
+    {% else %}
+    <h2 class="new-post">
+        <a href="#">
+            Login
+        </a>
+    </h2>
     {% endif %}
 
     {% for post in posts %}

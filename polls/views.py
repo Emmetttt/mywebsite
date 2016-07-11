@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
 from .models import Choice, Question
 from .forms import QuestionForm, ChoiceForm
 
@@ -20,7 +21,6 @@ class IndexView(generic.ListView):
 class PollDetailsPageView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
-
 
 class ResultsPageView(generic.DetailView):
     model = Question

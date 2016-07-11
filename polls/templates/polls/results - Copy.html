@@ -10,13 +10,13 @@
       // Set a callback to run when the Google Visualization API is loaded.
       google.charts.setOnLoadCallback(drawChart);
 
-      //data_choices = "{{ choice.choice_text }}"
-      //x = "{{ choice.choice_text.order_by }}"
-      var table = [];
-      table.push('x', 8)
-	  //{% for choice in question.choice_set.all %}
-	  //table.push("{{ choice.choice_text }}", {{ choice.votes }});
-	  //{% endfor %}
+      function getVotes() {
+        var table = [];
+		{% for choice in question.choice_set.all %}
+			table.push([ {{ choice.choice_text }}, {{ choice.votes }}]);
+		{% endfor %}
+		return table;
+      };
 
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
@@ -28,7 +28,9 @@
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Vote Option');
         data.addColumn('number', 'Votes');
-        data.addRows([table])
+        data.addRows(
+        	getVotes()
+        );
 
         // Set chart options
         var options = {'title':'Results',
@@ -38,7 +40,6 @@
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
-        text(options);
       }
     </script>
 
@@ -56,10 +57,8 @@
 		{% for choice in question.choice_set.all %}
 		    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 		{% endfor %}
+		</ul>
 
-		{% for choice in question.choice_set.all %}
-		    <li>[{{ choice.choice_text }} , {{ choice.votes }}]</li>
-		{% endfor %}
 		<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 	</div>
 	<div id="chart_div"></div>
