@@ -3,29 +3,35 @@
 <html>
     <head>
         <title>Homepage</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='https://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700italic,400italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 
-    <nav>
-    	<ul id="nav">
-    		<li><a href="/">Home</a></li>
-			<li><a href="/blog/">Blog</a></li>
-			<li><a href="/polls/">Polls</a></li>
-			<li><a href="/">About</a></li>
-		</ul>
-    </nav>
+    
 
 
-    <body>
-    	<section class='background'>
-    		<section class='main_container'>
-			{% block content %}
-			{% endblock %}
-		    </section>
-        </section>
+    <body class="container">
+        <header>
+            <ul id="share_links">
+                <li><a href="#">FB</a></li>
+                <li><a href="#">IG</a></li>
+                <li><a href="#">TW</a></li>
+            </ul>
+            <h1 id="logo">
+                <a href="#">Emmett Moore</a>
+            </h1>
+            <nav class="text-center">
+                <ul id="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/polls/">Polls</a></li>
+                    <li><a href="/">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
     </body>
 </html>
 
