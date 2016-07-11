@@ -49,26 +49,6 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
-# def poll_create(request):
-#     if request.method == "POST":
-#         Qform = QuestionForm(request.POST)
-#         Cform = ChoiceForm(request.POST)
-#         if Qform.is_valid() and Cform.is_valid:
-#             question = Qform.save(commit=False)
-#             question.author = request.user
-#             question.pub_date = timezone.now()
-#             question.save()
-#             choice = Cform.save(commit=False)
-#             choice.author = request.user
-#             choice.question = question
-#             choice.save()
-#             return redirect('polls:detail', pk=question.pk)
-#     else:
-#         Qform = QuestionForm()
-#         Cform = ChoiceForm()
-#     return render(request, 'polls/create.html', {'Qform': Qform, 'Cform': Cform})
-
-
 def poll_create(request):
     if request.method == "POST":
         Qform = QuestionForm(request.POST)

@@ -14,9 +14,13 @@
       //x = "{{ choice.choice_text.order_by }}"
       var table = [];
       table.push('x', 8)
-	  //{% for choice in question.choice_set.all %}
-	  //table.push("{{ choice.choice_text }}", {{ choice.votes }});
-	  //{% endfor %}
+
+      	{% for choice in question.choice_set.all %}
+		    [{{ choice.choice_text }} , {{ choice.votes }}]
+		{% endfor %}
+
+
+	  //table.push("{{ choice.choice_text }}", {{ choice.votes }});-=
 
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
