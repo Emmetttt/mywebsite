@@ -2,10 +2,10 @@
 
 {% block content %}
 	<div>
-	    <h1 class="title">
+	    <h1 class="title text-center">
 	    Polls
 	    </h1>
-	    <p class="text-center">
+	    <p class="text-center description">
 	    This is the homepage for creating or viewing polls. Navigate the newest polls on the left, or create a poll using the create button on the right.
 	    </p>
 	    <section class='poll_list'>
@@ -13,14 +13,14 @@
 	    	Newest Polls
 	    	</h1>
 	        {% if latest_question_list %}
-			    <p>
+			    <ul>
 			    {% for question in latest_question_list %}
 			        <li><a class="questions" href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
 			        <li class="results"><a class="results" href="{% url 'polls:results' question.id %}">Results</a></li>
 			    {% endfor %}
-			    </p>
+			    </ul>
 			{% else %}
-			    <p>No polls are available.</p>
+			    <p class="text-center">No polls are available.</p>
 			{% endif %}
 		</section>
 		<a class="create_poll_green" href="{% url 'polls:create' %}">
