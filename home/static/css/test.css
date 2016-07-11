@@ -42,12 +42,6 @@ header {
 	padding: 20px 0;
 	margin-bottom: 20px;
 }
-#logo img {
-	opacity: .6;
-}
-#logo img:hover {
-	opacity: 1;
-}
 #nav {
 	clear: both;
 }
@@ -84,11 +78,15 @@ header {
 	float: right;
 	font-size: 28px;
 }
-.date {
-	float: left;
+.date, .author {
+	float: right;
+	clear: both;
 	font-size: 14px;
 	font-style: italic;
 	padding-top: 7px;
+}
+.author {
+	font-style: initial;
 }
 .read_more {
 	float: right;
@@ -99,7 +97,27 @@ header {
 	font-style: italic;
 	margin-top: 10px;
 }
-
-
-
+#blog-navigation, #bar {
+	margin: 0;
+	padding: 0;
+	height: 22px;
+	background-color: black;
+}
+#page-number, #blog-navigation a {
+	padding-top: 2px;
+	margin-left: 5px;
+	margin-right: 15px;
+	color: white;
+	font-size: 12px;
+	font-style: italic;
+}
+#page-number {
+	color: #b3b3b3;
+}
+#blog-navigation li {
+	display: inline-block;
+}
+.description {
+	font-style: italic;
+}
 

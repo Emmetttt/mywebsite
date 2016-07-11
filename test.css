@@ -42,12 +42,6 @@ header {
 	padding: 20px 0;
 	margin-bottom: 20px;
 }
-#logo img {
-	opacity: .6;
-}
-#logo img:hover {
-	opacity: 1;
-}
 #nav {
 	clear: both;
 }
