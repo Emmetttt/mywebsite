@@ -56,16 +56,31 @@ header {
 	font-size: 16px;
 }
 
+/*~~~~ FOOTER ~~~~*/
+footer {
+	height: 22px;
+	background-color: red;
+	margin-bottom: 20px;
+}
+
+footer #bar {
+	height: 22px;
+	background-color: red;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
 /*~~~~ HOME PAGE ~~~~*/
 .title {
 	padding: 20px 0;
 }
+
 /*~~~~ BLOG POSTS ~~~~*/
 .new-post, #bar {
 	margin: 0;
 	padding: 0;
 	height: 22px;
-	background-color: black;
+	background-color: red;
 }
 .new-post a {
 	padding-top: 2px;
@@ -104,12 +119,8 @@ header {
 	margin-top: 10px;
 }
 
-#blog-navigation {
-	margin: 0;
-	padding: 0;
-	height: 22px;
-	background-color: black;
-}
+
+
 #page-number, #blog-navigation a {
 	padding-top: 2px;
 	margin-left: 5px;
@@ -121,9 +132,11 @@ header {
 #page-number {
 	color: #b3b3b3;
 }
+
 #blog-navigation li {
 	display: inline-block;
 }
+
 .description {
 	font-style: italic;
 }

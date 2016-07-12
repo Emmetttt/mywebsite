@@ -37,9 +37,15 @@
                 </ul>
             </nav>
         </header>
+
         {% block content %}
         {% endblock %}
-    </body>
-</html>
 
-            <!-- <h1><a href="">BlahBlah</a></h1> -->
+        <footer>
+            <div id="bar"></div>
+            {% block bottom-nav %}{% endblock %}
+        </footer>
+
+    </body>
+
+</html>
