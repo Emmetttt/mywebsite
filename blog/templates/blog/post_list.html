@@ -1,14 +1,15 @@
 {% extends 'home/base.html' %}
 
-{% block content %}
+{% block topbar %}
     {% if user.is_authenticated %}
-    <h2 class="new-post">
-        <a href="{% url 'post_new' %}">
-            Create new post
-        </a>
-    </h2>
-    {% else %}
+    <a href="{% url 'post_new' %}">
+        Create new post
+    </a>
     {% endif %}
+{% endblock %}
+
+{% block content %}
+
 
     {% for post in posts %}
         <article class="post row">

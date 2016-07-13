@@ -1,9 +1,15 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
+	{% if user.is_authenticated %}
     <h1 class='title'>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
+    {% else %}
+    <p align="center">
+    Log in to continue.
+    </p>
+    {% endif %}
 {% endblock %}

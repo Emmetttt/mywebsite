@@ -39,8 +39,8 @@
         </header>
         <h2 class="new-post">
             {% if user.is_authenticated %}
-            <a>
-            </a>
+            {% block topbar %}
+            {% endblock %}
             {% else %}
             <a href="/admin/">
                 Login
@@ -52,8 +52,7 @@
         {% endblock %}
 
         <footer>
-<!--             <div id="bar"></div>
- -->            {% block bottom-nav %}{% endblock %}
+            {% block bottom-nav %}{% endblock %}
         </footer>
 
     </body>
