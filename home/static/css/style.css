@@ -218,3 +218,9 @@ footer {
 #break_few_lines {
 	margin-top: 50px;
 }
+
+
+.facebook {
+	background-image: url("css/images/fb.png");
+	background-color: red;
+}
