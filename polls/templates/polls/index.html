@@ -9,13 +9,13 @@
 	    This is the homepage for creating or viewing polls. Navigate the newest polls on the left, or create a poll using the create button on the right.
 	    </p>
 	    <section class='poll_list'>
-	    	<h1 class="subtitle">
+	    	<h1>
 	    	Newest Polls
 	    	</h1>
 	        {% if latest_question_list %}
-			    <ul>
+			    <ul class="new_poll_list">
 			    {% for question in latest_question_list %}
-			        <li><a class="questions" href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+			        <li class="newest_questions"><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
 			        <li class="results"><a class="results" href="{% url 'polls:results' question.id %}">Results</a></li>
 			    {% endfor %}
 			    </ul>
@@ -23,7 +23,7 @@
 			    <p class="text-center">No polls are available.</p>
 			{% endif %}
 		</section>
-		<a class="create_poll_green" href="{% url 'polls:create' %}">
+		<a class="create_poll" href="{% url 'polls:create' %}">
 		Create Poll!
 		</a>
 	</div>

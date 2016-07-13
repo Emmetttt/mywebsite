@@ -1,8 +1,8 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    <h1 class='title'>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <h1 class='title' align="center">New post</h1>
+    <form method="POST" class="post-form" align="center">{% csrf_token %}
         {{ Qform.as_p }}
         {% for x in Cform %}
 		    {{ x.as_p }}

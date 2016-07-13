@@ -41,18 +41,18 @@
 {% endblock head %}
 
 {% block content %}
-	<div>
+<div>
+	<div class="results_left">
 	    <h1 class="title">
-	    Polls
+      {{ question.question_text }}
 	    </h1>
-		<h2>
-		{{ question.question_text }}
-		</h2>
 		<ul>
 		{% for choice in question.choice_set.all %}
 		    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 		{% endfor %}
-		<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    </ul>
+		<a href="{% url 'polls:detail' question.id %}" id="break_few_lines" class="save btn btn-default">Vote again?</a>
 	</div>
 	<div id="chart_div"></div>
+</div>
 {% endblock content %}

@@ -8,16 +8,11 @@
         </a>
     </h2>
     {% else %}
-    <h2 class="new-post">
-        <a href="#">
-            Login
-        </a>
-    </h2>
     {% endif %}
 
     {% for post in posts %}
         <article class="post row">
-            <div class="col-sm-5 blog_post_info">
+            <div class="col-sm-4 blog_post_info">
                 <h1 class="blog_post_title">
                     <a href="{% url 'post_specific' pk=post.pk %}">
                         {{ post.title }}
@@ -25,7 +20,7 @@
                     </h1>
                 <a href="{% url 'post_specific' pk=post.pk %}" class="read_more text-uppercase">Read More</a>
             </div>
-            <p class="col-sm-5 text-justify">
+            <p class="col-sm-6 text-justify">
                 {{ post.text|linebreaksbr }}
             </p>
             <div class="col-sm-2 blog_post_info">
@@ -40,13 +35,15 @@
 {% endblock %}
 
 {% block bottom-nav %}
-    <li><p id="page-number">
-        Page 1 of 1
-    </p></li>
-    <li><a href="#">
-        << Previous Page
-    </a></li>
-    <li><a href="#">
-        Next Page >>
-    </a></li>
+    <ul id="blog-navigation">
+        <li><p align="left">
+            <a href="#" id="white"> << Previous Page </a>
+        </a></li>
+        <li><p id="page-number" align="center">
+            Page 1 of 1
+        </p></li>
+        <li><p href="#" align="right">
+            <a href="#" id="white"> Next Page >> </a>
+        </a></li>
+    </ul>
 {% endblock %}
