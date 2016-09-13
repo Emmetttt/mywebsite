@@ -1,0 +1,66 @@
+Creating a grapher app
+
+python manage.py startapp music_grapher
+
+in mywebsite/mywebsite/settings, add music_grapher to INSTALLED_APPS
+
+in mywebsite/mywebsite/urls:
+	    url(r'^music_grapher/', include('music_grapher.urls')),
+	
+create urls inside mywebsite/music_grapher
+		from django.conf.urls import patterns, include, url
+
+		from . import views
+
+		app_name = 'polls'
+		urlpatterns = [
+		    url(r'^$', views.IndexView, name='index'),
+		]
+
+in views.py, we need to create an IndexView, so view.IndexView.as_view() can read off something.
+		from django.shortcuts import render
+		from django.http import HttpResponse
+
+		def IndexView(request):
+		    return render(request, 'music_grapher/index.html', {})
+
+now we need to create an index.html template. in website/music_grapher (where urls.py and views.py reside), create templates/music_grapher/
+Now create index.html and fill it with something, here is mine:
+		{% extends 'home/base.html' %}
+
+		{% block content %}
+		this is for the music grapher
+		{% endblock %}
+
+create a link from the base.html if you want to, mine goes like this:
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/polls/">Polls</a></li>
+        <li><a href="/music_grapher/">Music Grapher</a></li>
+        <li><a href="/">About</a></li>
+
+Test to see if it works
+		python manage.py runserver
+It works!
+
+////////Lets create a model that accepts an input for a band name
+////////		from django.db import models
+////////
+////////		class BandNameInput(models.Model):
+////////			name_input = models.CharField(max_length=50)
+////////			def __str__(self):
+////////				return self.name_input
+
+////////Create a simple form so the user can input a band name.
+////////		from django import forms
+////////
+////////		from .models import BandNameInput
+////////
+////////		class InputForm(forms.ModelForm):
+////////		    class Meta:
+////////		        model = Question
+////////		        fields = ('name_input',) 
+
+
+
+To the HTML, add a box and an input button so users can input their own band name to be graphed

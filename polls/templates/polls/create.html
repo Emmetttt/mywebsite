@@ -1,12 +1,12 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    <h1 class='title' align="center">New post</h1>
+    <h1 class='title' align="center">New Poll</h1>
     <form method="POST" class="post-form" align="center">{% csrf_token %}
         {{ Qform.as_p }}
         {% for x in Cform %}
 		    {{ x.as_p }}
-		{% endfor%}
+		{% endfor %}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}

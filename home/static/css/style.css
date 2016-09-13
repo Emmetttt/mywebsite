@@ -161,6 +161,24 @@ footer {
 	color: white;
 }
 
+ol {
+	background: #F2F2F2 repeat-y;
+	overflow:auto;
+	font-family:"Courier New",Courier,mono;
+	margin:0;
+	padding-left:3em;
+	color:#036;
+	width:90%;
+}
+ol li {
+	background:#F2F2F2;
+	line-height:.1em;
+	font-size:small;
+}
+ol code {
+	color:#036;
+}
+
 
 /*~~~~~ POLLS ~~~~~~*/
 
@@ -219,8 +237,14 @@ footer {
 	margin-top: 50px;
 }
 
-
-.facebook {
-	background-image: url("css/images/fb.png");
-	background-color: red;
+/*label[for=id_question_text], label[for=id_0-choice_text], label[for=id_1-choice_text], label[for=id_2-choice_text], label[for=id_3-choice_text] {
+	float: left;
+}
+*/
+input[id=id_question_text], input[id=id_0-choice_text], input[id=id_1-choice_text], input[id=id_2-choice_text], input[id=id_3-choice_text] {
+	float: right;
+	margin-right: 15%;
+	margin-left: -20%;
+	width: 279px;
+	text-align: center;
 }

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'polls',
     'blog',
+    'music_grapher',
 ]
 
 MIDDLEWARE_CLASSES = [
