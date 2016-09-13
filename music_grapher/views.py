@@ -40,6 +40,7 @@ def RetrieveInfo(name):
           'Nov': '11',
           'Dec': '12'}
 
+
     albumNames = []
     albumScores = []
     albumYears = []
