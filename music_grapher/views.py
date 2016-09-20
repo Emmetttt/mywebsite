@@ -56,10 +56,11 @@ def band_input(request):
         Bform = BandForm(request.POST)
         if Bform.is_valid():
             bandname = Bform.cleaned_data.get('band_input')
-            albumname = RetrieveInfo(Bform.cleaned_data.get('band_input'))[0]
-            albumscore = RetrieveInfo(Bform.cleaned_data.get('band_input'))[1]
-            albumdate = RetrieveInfo(Bform.cleaned_data.get('band_input'))[2]
-            data = RetrieveInfo(Bform.cleaned_data.get('band_input'))[3]
+            info = RetrieveInfo(Bform.cleaned_data.get('band_input'))
+            albumname = info[0]
+            albumscore = info[1]
+            albumdate = info[2]
+            data = info[3]
             return render(request, 'music_grapher/graph.html', {'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data})
     else:
         Bform = BandForm()
