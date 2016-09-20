@@ -26,7 +26,7 @@ def RetrieveInfo(name):
     urllibpage = requests.get(page,headers=headers)
     soup = BeautifulSoup(urllibpage.text, "html.parser")
     Link = soup.find('a', href=re.compile('^/artist/[0-9]{1,7}-' + nameDashed)) ##Finds any link in the soup with can link to the beatles page
-    Name = re.search('\/artist\/[0-9]{1,7}-(.*?)\/', str(Link)).group(0) ##extracts the links from <a> using regex. .group(0) prints the first match
+    Name = re.search('\/artist\/[0-9]{1,7}-(.*?)\/', str(Link)).group(0) ##extracts the links from <a> using regex group(0) prints the first match
 
 
     artistPage = 'http://www.albumoftheyear.org/' + Name ##load artist page directly
