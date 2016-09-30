@@ -6,6 +6,7 @@ class Post(models.Model): #model saved in database
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200) #limited no characters
     text = models.TextField() #unlimited numbers characters
+    tag = models.CharField(max_length=50)
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(

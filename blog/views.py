@@ -1,12 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.urlresolvers import reverse
 from django.utils import timezone
+import re
 
 from .models import Post
 from .forms import PostForm
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date') ##TEST THIS IN SHELL THO
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date') ##-publish... reverse chrono
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+def post_list_tag(request, **kwarg):
+    unfiltered_tag = str(kwarg)
+    tag = unfiltered_tag[11:-2] 
+    posts = Post.objects.filter(tag=tag).order_by('-published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts, 'keyword' : tag})
 
 def post_specific(request, pk):
 	post = get_object_or_404(Post, pk=pk)
