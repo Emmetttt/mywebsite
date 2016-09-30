@@ -1,11 +1,9 @@
 {% extends 'home/base.html' %}
 
 {% block topbar %}
-    {% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}">
+    <a class="nav-bar-text" href="{% url 'post_new' %}">
         Create new post
     </a>
-    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -13,21 +11,19 @@
 
     {% for post in posts %}
         <article class="post row">
-            <div class="col-sm-4 blog_post_info">
+            <div class="col-sm-3 blog_post_info">
                 <h1 class="blog_post_title">
                     <a href="{% url 'post_specific' pk=post.pk %}">
                         {{ post.title }}
                     </a>
                     </h1>
                 <a href="{% url 'post_specific' pk=post.pk %}" class="read_more text-uppercase">Read More</a>
+                <h2 class="date"> {{ post.published_date }} </a>
             </div>
-            <p class="col-sm-6 text-justify">
-                {{ post.text|linebreaksbr }}
+            <p class="col-sm-7">
+                {% autoescape off %} {{ post.text|linebreaksbr }} {% endautoescape %}
             </p>
-            <div class="col-sm-2 blog_post_info">
-                <h2 class="date">
-                    {{ post.published_date }}
-                </h2>
+            <div class="col-sm-2 text-sm-left blog_post_info">
             </div>
         </article>
 
@@ -37,13 +33,13 @@
 
 {% block bottom-nav %}
     <ul id="blog-navigation">
-        <li><p align="left">
+        <li><p id="blog-navigation" align="left">
             <a href="#" id="white"> << Previous Page </a>
         </a></li>
-        <li><p id="page-number" align="center">
+        <li><p id="blog-navigation" align="center">
             Page 1 of 1
         </p></li>
-        <li><p href="#" align="right">
+        <li><p id="blog-navigation" href="#" align="right">
             <a href="#" id="white"> Next Page >> </a>
         </a></li>
     </ul>

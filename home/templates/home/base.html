@@ -5,6 +5,7 @@
         <title>Homepage</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700italic,400italic' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Assistant:400" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">   
         <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
         <script src="{% static 'js/rango-jquery.js' %}"></script>
@@ -17,15 +18,18 @@
     <body class="container">
         <header>
             <ul id="share_links">
-                <li><a href="#">
+                <li><a href="https://github.com/emmetttt" target="_blank">
+                    <img src="https://github.com/favicon.ico" alt="github">
+                </a></li>
+                <li><a href="https://www.facebook.com/emmett.moore.923" target="_blank">
                     <img src="{% static 'css/img/fb.png' %}" alt="fb">
                 </a></li>
-                <li><a href="#">
+<!--                 <li><a href="#">
                     <img src="{% static 'css/img/tw.png' %}" alt="c">
                 </a></li>
                 <li><a href="#">
                     <img src="{% static 'css/img/ig.png' %}" alt="s">
-                </a></li>
+                </a></li> -->
             </ul>
             <h1 id="logo">
                 <a href="/">Emmett Moore</a>
@@ -34,18 +38,18 @@
                 <ul id="nav">
                     <li><a href="/">Home</a></li>
                     <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/polls/">Polls</a></li>
+                    <li><a href="home/links/">Links</a></li>
                     <li><a href="/music_grapher/">Music Grapher</a></li>
                     <li><a href="/">About</a></li>
                 </ul>
             </nav>
         </header>
-        <h2 class="new-post">
+        <h2 class="nav-bar">
             {% if user.is_authenticated %}
             {% block topbar %}
             {% endblock %}
             {% else %}
-            <a href="/admin/">
+            <a class="nav-bar-text" href="/admin/">
                 Login
             </a>
             {% endif %}

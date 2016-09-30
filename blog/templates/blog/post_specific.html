@@ -1,18 +1,22 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-	<h1 class="title text-center" align="center">
+    <h1 class="title text-center">
     {{ post.title }}
     </h1>
     <div>
         {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
-        <p>{% autoescape off %} {{ post.text }} {% endautoescape %}</p>
-        {% if post.published_date %} <!-- If it has a published date -->
-            <div>
+        <div class="col-sm-6 col-sm-offset-3" id="post-no-float">
+            <p>{% autoescape off %} {{ post.text }} {% endautoescape %}</p>
+
+            {% if post.published_date %} <!-- If it has a published date -->
+            <div class="date_specific">
                 {{ post.published_date }}
             </div>
-        {% endif %}
+            {% endif %}
+
+        </div>
     </div>
 {% endblock %}

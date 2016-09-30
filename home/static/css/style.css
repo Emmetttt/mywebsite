@@ -6,7 +6,7 @@
 
 /*~~~~ UNIVERSAL ~~~~*/
 body {
-	font-family: 'Playfair Display', serif;
+	font-family: 'Assistant', sans-serif;
 	background-image: url("images/background.jpg");
 }
 ul {
@@ -21,31 +21,39 @@ a:hover {
 	color: rgb(28, 31, 29);
 }
 
+h1 {
+	font-family: 'Playfair Display', serif;
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.4;
+}
+
 /* Header */
 
 #share_links li, #nav li{
 	display: inline-block;
 }
 header {
-	height: 180px;
 	width: 100%;
-	border-bottom: 1px solid black;
-	padding-top: 10px;
+	padding-top: 35px;
 }
+
+
 #share_links {
+	padding-top: 15px;
 	float: right;
 }
 #share_links li {
 	padding-left: 10px;
 }
 #logo {
+	font-family: 'Playfair Display', serif;
 	font-style: italic;
 	font-weight: 700;
 	font-size: 50px;
 	float: left;
-	clear: both;
-	padding: 20px 0;
-	margin-bottom: 20px;
 }
 #share_links img {
 	opacity: .6;
@@ -56,9 +64,34 @@ header {
 #nav {
 	clear: both;
 }
+
+
 #nav li{
-	padding: 0 20px;
+	padding: 50 20 0 20px;
+	margin-bottom: 3px;
+	font-size: 18px;
+}
+
+.nav-bar {
+	margin-top: 2px;
+	padding: 0;
+	height: 22px;
+	background-color: rgb(28, 31, 29);
+}
+
+.nav-bar-text {
+	font-family: 'Playfair Display', serif;
+	padding: 1px 20 0 20px;
+	margin-bottom: 3px;
 	font-size: 16px;
+	color: white;
+	float: right;
+	opacity: 0.95;
+}
+
+.nav-bar-text:hover {
+	color: white;
+	text-decoration: none;
 }
 
 /*~~~~ FOOTER ~~~~*/
@@ -72,12 +105,12 @@ footer {
 
 /*~~~~ HOME PAGE ~~~~*/
 .title {
-	padding: 20px 0;
+	padding: 30px 0 30px 0;
 }
 
 /*~~~~ BLOG POSTS ~~~~*/
 .new-post {
-	margin: 0;
+	margin-top: 2px;
 	padding: 0;
 	height: 22px;
 	background-color: rgb(28, 31, 29);
@@ -92,8 +125,8 @@ footer {
 }
 .post {
 	margin-bottom: 30px;
-	border-top: solid 1px black;
-	padding-top: 5px;
+	border-top: solid 1px #7D7D7F;
+	padding-top: 30px;
 }
 .blog_post_info {
 	padding-top: 0px;
@@ -104,10 +137,13 @@ footer {
 	font-size: 28px;
 }
 .date {
-	float: left;
+	float: right;
+	clear: both;
 	font-size: 14px;
-	font-style: italic;
 	padding-top: 7px;
+}
+.date_specific {
+	margin-top: 30px;
 }
 .read_more {
 	float: right;
@@ -123,6 +159,12 @@ footer {
 }
 
 
+
+
+#post-no-float {
+	float: none;
+}
+
 #blog-navigation {
     display: table;
 	padding-top: 2px;
@@ -134,8 +176,10 @@ footer {
 }
 
 #blog-navigation li {
+	font-size: 2px;
 	display: inline-block;
 	width: 32.9%;
+	padding-right: 5px;
 }
 
 #page-number {
@@ -165,14 +209,15 @@ ol {
 	background: #F2F2F2 repeat-y;
 	overflow:auto;
 	font-family:"Courier New",Courier,mono;
-	margin:0;
 	padding-left:3em;
 	color:#036;
 	width:90%;
+	margin: 10px 0 10px 0;
+	min-height: 20px;
 }
 ol li {
 	background:#F2F2F2;
-	line-height:.1em;
+	line-height:1.5em;
 	font-size:small;
 }
 ol code {

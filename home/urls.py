@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'home', views.index, name='index'),
+    url(r'links', views.links, name='links'),
 ]
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
