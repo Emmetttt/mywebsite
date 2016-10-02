@@ -12,9 +12,9 @@ def post_list(request):
 
 def post_list_tag(request, **kwarg):
     unfiltered_tag = str(kwarg)
-    tag = unfiltered_tag[11:-2] 
+    tag = unfiltered_tag[11:-2]
     posts = Post.objects.filter(tag=tag).order_by('-published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts, 'keyword' : tag})
+    return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_specific(request, pk):
 	post = get_object_or_404(Post, pk=pk)

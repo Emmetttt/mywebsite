@@ -39,6 +39,8 @@ def RetrieveInfo(name):
     data = []
     k=0
 
+
+
     for dates in soupA.findAll('div', {"class" : "date"}):
         albumYears.append(int(dates.text)) ##Change to integer from string so it can be graphed properly
     for titles in soupA.findAll('div', {"class" : "albumTitle"}):
@@ -46,10 +48,19 @@ def RetrieveInfo(name):
     for scores in soupA.findAll('div', {"class" : "rating"}):
         albumScores.append(int(scores.text))
     for value in albumScores:
-        data.append([albumYears[k], albumScores[k]])
+        data.append('{name: "' + albumNames[k] + '",x: "' + str(albumYears[k]) + '",y: ' + str(albumScores[k]) + '}')
+        data[k] = data[k].replace("'", "")
+        #data[k] = data[k].replace('"', '')
         k = k+1
 
-    return albumNames, albumScores, albumYears, data
+        #NEED "" AROUND ALBUM TITLE
+
+    data = str(data).replace("'", "")
+
+    max_date = max(albumYears) + 2
+    min_date = min(albumYears) - 2
+
+    return albumNames, albumScores, albumYears, data, max_date, min_date
 
 
 def band_input(request):
@@ -62,7 +73,9 @@ def band_input(request):
             albumscore = info[1]
             albumdate = info[2]
             data = info[3]
-            return render(request, 'music_grapher/graph.html', {'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data})
+            max_date = info[4]
+            min_date = info[5]
+            return render(request, 'music_grapher/graph.html', {'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
     else:
         Bform = BandForm()
     return render(request, 'music_grapher/index.html', {'Bform': Bform})

@@ -7,37 +7,55 @@
 <script type="text/javascript">
 $(function () {
     $('#container').highcharts({
+
+
+/*    	function pointClick() {
+                var row = this.options.row,
+                    $div = $('<div></div>')
+                        .dialog({
+                            title: this.name,
+                            width: 400,
+                            height: 300
+                        });
+
+                    }*/
+
+
         xAxis: {
-            min: 2000,
-            max: 2015
+        	title: {
+        		text: 'Year'
+        	},
+            min: {{ min_date }},
+            max: {{ max_date }}
         },
+
         yAxis: {
+        	title: {
+        		text: 'Score'
+        	},
             min: 0,
             max: 100
         },
+
         title: {
-            text: 'Scatter plot with regression line'
+            text: 'Album Plot'
         },
+
+        tooltip: {
+        	formatter: function () {
+        		return '<b>Album Name: </b>' + this.point.name + '<br/><b>Release Year: </b>' + this.point.x + '<br/><b>Critic Score: </b>' + this.point.y;
+        	}
+        },
+
         series: [{
-            type: 'line',
-            name: 'Regression Line',
-            data: [[0, 1.11], [5, 4.51]],
-            marker: {
-                enabled: false
-            },
-            states: {
-                hover: {
-                    lineWidth: 0
-                }
-            },
-            enableMouseTracking: false
-        }, {
             type: 'scatter',
             name: 'Observations',
-            data: {{ data }},
+            /*data: [{name: "The Peoples Key",x: '2011',y: 67}, {name: 'Cassadaga',x: '2007',y: 73}, {name: "I'm Wide Awake, It's Morning",x: '2005',y: 84}],*/
+            data: {{ data|safe }}, /*quotes come out as &quot; if not |safe*/
             marker: {
                 radius: 4
             }
+            /*data: {{ data }}*/
         }]
     });
 });
@@ -49,9 +67,10 @@ $(function () {
 
 {% block content %}
 	<div>
-	    <h1 class="title">
+
+	    <h1 class="title text-center" >
 	    {{ bandname }}
-	    </h1>
+	    </h1><!-- 
 	    <p>
 	    {{ albumname }}
 	    </p>
@@ -63,8 +82,14 @@ $(function () {
 	    {{ albumdate }}
 	    </p>
 	    <p>
-	    {{ data }}
+	    {{ max_date }}
 	    </p>
+	    <p>
+	    {{ min_date }}
+	    </p>
+	    <p>
+	    data: {{ data }},
+	    </p> -->
 	    <div id="container" style="width:100%; height:400px;"></div>
 	</div>
 {% endblock %}
