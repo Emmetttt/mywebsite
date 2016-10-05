@@ -37,28 +37,49 @@ def RetrieveInfo(name):
     albumNames = []
     albumScores = []
     data = []
-    k=0
-
-
 
     for dates in soupA.findAll('div', {"class" : "date"}):
         albumYears.append(int(dates.text)) ##Change to integer from string so it can be graphed properly
+        
     for titles in soupA.findAll('div', {"class" : "albumTitle"}):
-        albumNames.append(titles.text)
+        name = titles.text
+        name = name.replace("'", "")
+        albumNames.append(name)
+
+    i=0
+
+    for checkDate in soupA.findAll('div', {"class" : "ratingRowContainer"}):
+        if checkDate.contents == []:
+            del albumYears[i]
+            del albumNames[i]
+            ##No i+1 since the length of the list has reduced by 1
+        else:
+            i = i+1
+            
     for scores in soupA.findAll('div', {"class" : "rating"}):
         albumScores.append(int(scores.text))
-    for value in albumScores:
+        
+    for j in albumYears:
+        if j < 1900:
+            del albumYears[j-1]
+            del albumNames[j-1]
+            del albumScores[j-1]
+
+    k=0
+
+    for value in albumScores: ##Gets data into javascript readable format
         data.append('{name: "' + albumNames[k] + '",x: "' + str(albumYears[k]) + '",y: ' + str(albumScores[k]) + '}')
         data[k] = data[k].replace("'", "")
-        #data[k] = data[k].replace('"', '')
         k = k+1
-
-        #NEED "" AROUND ALBUM TITLE
 
     data = str(data).replace("'", "")
 
+
+
     max_date = max(albumYears) + 2
-    min_date = min(albumYears) - 2
+    min_date = min(albumYears) - 2 
+
+
 
     return albumNames, albumScores, albumYears, data, max_date, min_date
 
@@ -75,7 +96,9 @@ def band_input(request):
             data = info[3]
             max_date = info[4]
             min_date = info[5]
-            return render(request, 'music_grapher/graph.html', {'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
+            bandname = bandname.title()
+            Bandform = BandForm()
+            return render(request, 'music_grapher/graph.html', {'Bform': Bform, 'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
     else:
         Bform = BandForm()
     return render(request, 'music_grapher/index.html', {'Bform': Bform})
