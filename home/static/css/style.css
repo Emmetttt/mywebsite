@@ -21,6 +21,10 @@ a:hover {
 	color: rgb(28, 31, 29);
 }
 
+.full-width {
+	margin: 0 auto;
+}
+
 h1 {
 	font-family: 'Playfair Display', serif;
 }
@@ -54,6 +58,7 @@ header {
 	font-weight: 700;
 	font-size: 50px;
 	float: left;
+	padding-bottom: 40px;
 }
 #share_links img {
 	opacity: .6;
@@ -67,12 +72,12 @@ header {
 
 
 #nav li{
-	padding: 50 20 0 20px;
+	padding: 0 20 0 20px;
 	margin-bottom: 3px;
 	font-size: 18px;
 }
 
-.nav-bar {
+.nav-bar {  /*BIG BLACK BAR*/
 	margin-top: 2px;
 	padding: 0;
 	height: 22px;
@@ -127,7 +132,10 @@ footer {
 	margin-bottom: 30px;
 	border-top: solid 1px #7D7D7F;
 	padding-top: 30px;
+	height: 250px;
+	overflow-y: hidden;
 }
+
 .blog_post_info {
 	padding-top: 0px;
 	padding-left: 0px;

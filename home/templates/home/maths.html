@@ -1,0 +1,108 @@
+{% extends 'home/base.html' %}
+
+{% block head %}
+	<script type="text/javascript" async
+	  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+{% endblock %}
+
+
+{% block content %}
+	<div id="bar">
+        </div>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h1 class="title text-center">
+		    Maths Identities and General Solutions
+		    </h1>
+		</div>
+		<div class="col-sm-4 text-center">
+			<h2>
+			Taylor Expansion
+			</h2>
+			<br>
+			<ul>
+				<li>
+					$$f(x) = f(x_0) + f'(x_0)x + \frac{f''(x_0)}{2!}x^2...$$
+				</li>
+				<li>
+					$$\frac{1}{1-x} = 1 + x + x^2 + x^3$$
+				</li>
+				<li>
+					$$cosx = 1 - \frac{1}{2}x^2 + {1}{24}x^4$$
+				</li>
+				<li>
+					$$sinx = x - {1}{6}x^3 + {1}{120}x^5$$
+				</li>
+				<li>
+					$$tanx = x + \frac{1}{3}x^3 + \frac{2}{5}x^5$$
+				</li>
+				<li>
+					$$e^x = 1 + x + \frac{1}{2}x^2$$
+				</li>
+				<li>
+					$$ln(1+x) = x - \frac{1}{2}x^2 + \frac{1}{3}x^3$$
+				</li>
+			</ul>
+			<br>
+			<br>
+		</div>
+		<div class="col-sm-4 text-center">
+			<h2>
+			Trig Identities
+			</h2>
+			<br>
+			<ul>
+				<li>
+					$$\sin^2x + \cos^2x = 1$$
+				</li>
+				<li>
+					$$\tan^2x + 1 = \sec^2x$$
+				</li>
+				<li>
+					$$\tan{x} = \frac{\sin{x}}{\cos{x}}$$
+				</li>
+				<li>
+					$$\sin{x \pm y} = \sin{x} \cos{y} \pm \cos{x} \sin{y}$$
+				</li>
+				<li>
+					$$\cos{x \pm y} = \cos{x} \cos{y} \mp \sin{x} \sin{y}$$
+				</li>
+				<li>
+					$$\tan{x \pm y} = \frac{\tan{x} \pm \tan{y}}{1 \mp \tan{x} \tan{y}}$$
+				</li>
+				<li>
+					$$\sin(2{x}) = 2 \sin{x} \cos{x}$$
+				</li>
+				<li>
+					$$\cos{2x} = \cos^2{x} - \sin^2{x}$$
+				</li>
+				<li>
+					$$\sin^2x = \frac{1-\cos(2x)}{2}$$
+				</li>
+				<li>
+					$$\cos^2x = \frac{1+\cos(2x)}{2}$$
+				</li>
+				<li>
+					$$\tan^2x = \frac{1-\cos(2x)}{1+\cos(2x)}$$
+				</li>
+			</ul>
+			<br>
+			<br>
+		</div>
+		<div class="col-sm-4 text-center">
+			<h2>
+			Taylor Expansion
+			</h2>
+			<br>
+			<ul>
+				<li></li>
+			</ul>
+			<br>
+			<br>
+		</div>
+	</div>
+{% endblock %}

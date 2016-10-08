@@ -11,7 +11,7 @@
 
     {% for post in posts %}
         <article class="post row">
-            <div class="col-sm-3 blog_post_info">
+            <div class="col-md-3 blog_post_info">
                 <h1 class="blog_post_title">
                     <a href="{% url 'post_specific' pk=post.pk %}">
                         {{ post.title }}
@@ -24,11 +24,11 @@
 
                 <h2 class="date"> {{ post.published_date }} </h2>
             </div>
-            <div class="col-sm-7">
+            <div class="col-md-7">
                 {% autoescape off %} {{ post.text|linebreaksbr }} {% endautoescape %}
-            </div>
+            </div><!-- 
             <div class="col-sm-2 text-sm-left blog_post_info">
-            </div>
+            </div> -->
         </article>
 
     {% endfor %}

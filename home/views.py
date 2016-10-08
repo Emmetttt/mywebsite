@@ -7,4 +7,7 @@ def index(request):
 
 def links(request):
     return render(request, 'home/links.html', {})
+
+def maths(request):
+    return render(request, 'home/maths.html', {})
    
