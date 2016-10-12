@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 import re
 import time
 import requests
-
+import math
 
 from .models import Band
 from .forms import BandForm
@@ -36,6 +36,7 @@ def RetrieveInfo(name):
     albumYears = []
     albumNames = []
     albumScores = []
+    albumLinks = []
     data = []
 
     for dates in soupA.findAll('div', {"class" : "date"}):
@@ -45,6 +46,9 @@ def RetrieveInfo(name):
         name = titles.text
         name = name.replace("'", "")
         albumNames.append(name)
+        albumLink = "http://www.albumoftheyear.org" + titles.parent.get('href')
+        albumLinks.append(albumLink)
+
 
     i=0
 
@@ -68,7 +72,7 @@ def RetrieveInfo(name):
     k=0
 
     for value in albumScores: ##Gets data into javascript readable format
-        data.append('{name: "' + albumNames[k] + '",x: "' + str(albumYears[k]) + '",y: ' + str(albumScores[k]) + '}')
+        data.append('{name: "' + albumNames[k] + '",x: "' + str(albumYears[k]) + '",link: "' + str(albumLinks[k]) + '",y: ' + str(albumScores[k]) + '}')
         data[k] = data[k].replace("'", "")
         k = k+1
 
@@ -79,9 +83,52 @@ def RetrieveInfo(name):
     max_date = max(albumYears) + 2
     min_date = min(albumYears) - 2 
 
+    ############REGRESSION LINE###########
+    avgx = sum(albumYears)/len(albumYears)
+    avgy = sum(albumScores)/len(albumScores)
+
+    X = []
+    Y = []
+    j = 0
+
+    while j != len(albumYears):
+        X.append(albumYears[j] - avgx)
+        Y.append(albumScores[j] - avgy)
+        j+=1
+
+    i = 0
+    sumxy = 0
+    sumx2 = 0
+    sumy2 = 0
+    sumXminusmean = 0
+    sumYminusmean = 0
+    
+    while i != len(albumYears):
+        sumxy = sumxy + (Y[i]*X[i])
+        sumx2 = sumx2 + X[i]**2
+        sumy2 = sumy2 + Y[i]*Y[i]
+        sumXminusmean = sumXminusmean + (albumYears[i] - avgx)**2
+        sumYminusmean = sumYminusmean + (albumScores[i] - avgy)**2
+        i+=1
+
+    r = sumxy/math.sqrt(sumx2 * sumy2)
+    stdevx = math.sqrt(sumXminusmean/(len(albumYears)-1))
+    stdevy = math.sqrt(sumYminusmean/(len(albumScores)-1))
+
+    b = r * (stdevx/stdevy)
+    A = avgy - (b*avgx)
+
+    lineX = [min(albumYears), max(albumYears)]
+    lineY = [(lineX[0]*b)+A, (lineX[1]*b)+A]
+
+    k=0
+    regression = []
+    for xy in lineX:
+        regression.append([lineX[k],lineY[k]])
+        k+=1
 
 
-    return albumNames, albumScores, albumYears, data, max_date, min_date
+    return albumNames, albumScores, albumYears, data, max_date, min_date, regression
 
 
 def band_input(request):
@@ -96,9 +143,10 @@ def band_input(request):
             data = info[3]
             max_date = info[4]
             min_date = info[5]
+            regression = info[6]
             bandname = bandname.title()
             Bandform = BandForm()
-            return render(request, 'music_grapher/graph.html', {'Bform': Bform, 'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
+            return render(request, 'music_grapher/graph.html', {'Bform': Bform, 'regression': regression, 'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
     else:
         Bform = BandForm()
     return render(request, 'music_grapher/index.html', {'Bform': Bform})

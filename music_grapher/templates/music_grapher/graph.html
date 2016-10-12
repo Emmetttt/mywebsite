@@ -33,15 +33,41 @@ $(function () {
         	}
         },
 
+        plotOptions: {
+            series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function () {
+                            window.open(this.options.link, "_blank")
+                        }
+                    }
+                }
+                /*legendItemClick: function(event) {
+                    chart.yAxis[0].options.tickInterval = 2;
+                    chart.options.yAxis.min = 0;
+                    chart.options.yAxis.max = 20;
+                    chart.redraw();
+                }*/
+            }
+        },
+
         series: [{
+            type: 'line',
+            name: 'Trend',
+            data: {{ regression|safe }},
+            marker: {
+                enabled: false
+            },
+            enableMouseTracking: false
+        }, {
             type: 'scatter',
-            name: 'Observations',
-            /*data: [{name: "The Peoples Key",x: '2011',y: 67}, {name: 'Cassadaga',x: '2007',y: 73}, {name: "I'm Wide Awake, It's Morning",x: '2005',y: 84}],*/
+            name: 'Albums',
             data: {{ data|safe }}, /*quotes come out as &quot; if not |safe*/
             marker: {
-                radius: 4
+                radius: 4,
+                fillColor: '#949494'
             }
-            /*data: {{ data }}*/
         }]
     });
 });
@@ -72,10 +98,13 @@ $(function () {
 	    </p>
 	    <p>
 	    {{ min_date }}
-	    </p>
-	    <p>
+	    </p>-->
+<!-- 	    <p>
 	    data: {{ data }},
-	    </p> -->
+	    </p>  --><!-- 
+        <p>
+        regression : {{ regression }}
+        </p> -->
 	    <div id="container" style="width:100%; height:400px;"></div>	
 	    <br>
 	    <br>    
