@@ -99,12 +99,6 @@ header {
 	text-decoration: none;
 }
 
-.round-corners {
-	border-radius: 3px;
-	background: url(https://theguardian.com/favicon.ico);
-	margin-bottom: 100px;
-}
-
 /*~~~~ FOOTER ~~~~*/
 footer {
 	height: 22px;
