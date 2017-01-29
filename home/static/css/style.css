@@ -34,6 +34,20 @@ p {
 	line-height: 1.4;
 }
 
+.hideContent {
+    overflow: hidden;
+    line-height: 1em;
+    height: 2em;
+}
+
+.showContent {
+    height: auto;
+}
+.show-more {
+    padding: 10px 0;
+    text-align: center;
+}
+
 /* Header */
 
 #share_links li, #nav li{

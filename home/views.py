@@ -10,4 +10,7 @@ def links(request):
 
 def maths(request):
     return render(request, 'home/maths.html', {})
+
+def about(request):
+    return render(request, 'home/about.html', {})
    
