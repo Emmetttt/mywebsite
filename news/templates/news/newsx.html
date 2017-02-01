@@ -1,0 +1,197 @@
+{% extends 'home/base.html' %}
+
+{% block head %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(".show-more a").on("click", function() {
+    var $this = $(this); 
+    var $content = $this.parent().prev("div.content");
+    var linkText = $this.text().toUpperCase();    
+    
+    if(linkText === "SHOW MORE"){
+        linkText = "Show less";
+        $content.switchClass("hideContent", "showContent", 400);
+    } else {
+        linkText = "Show more";
+        $content.switchClass("showContent", "hideContent", 400);
+    };
+
+    $this.text(linkText);
+});
+</script>
+{% endblock %}
+<!-- 
+{% block content %}
+	<h1 class="title text-center">
+    Neutral News
+    </h1>
+	<div class="row">
+		<div class="col-sm-5">
+			<h1 class="title">
+		    International
+		    </h1>
+		    <div class="content hideContent">
+			    <p>
+			    	<ul>
+			    	{% for info in guardian_world %}
+	    				<li>
+	    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
+	    				</li>
+					{% empty %}
+					    <li>No articles yet.</li>
+					{% endfor %}
+					</ul>
+			    </p>
+			    <p>
+			    	<ul>
+			    	{% for info in bbc_world %}
+	    				<li>
+	    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
+	    				</li>
+					{% empty %}
+					    <li>No articles yet.</li>
+					{% endfor %}
+					</ul>
+			    </p>
+			    <p>
+			    	<ul>
+			    	{% for info in telegraph_world %}
+	    				<li>
+	    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
+	    				</li>
+					{% empty %}
+					    <li>No articles yet.</li>
+					{% endfor %}
+					</ul>
+				</p>
+			</div>
+		    <div class="show-more">
+	        	<a href="#">Show more</a>
+	    	</div>
+		</div>
+		<div class="col-sm-5 col-sm-offset-2">
+			<h1 class="title">
+		    UK
+		    </h1>
+		    <p>
+		    	<ul>
+		    	{% for info in guardian_uk %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		    <p>
+		    	<ul>
+		    	{% for info in bbc_uk %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		    <p>
+		    	<ul>
+		    	{% for info in telegraph_uk %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		</div>
+		<div class="col-sm-12">
+		</div>
+		<div class="col-sm-5">
+			<h1 class="title">
+		    Football
+		    </h1>
+		    <p>
+		    	<ul>
+		    	{% for info in guardian_football %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		    <p>
+		    	<ul>
+		    	{% for info in bbc_football %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		    <p>
+		    	<ul>
+		    	{% for info in telegraph_football %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		</div>
+		<div class="col-sm-5 col-sm-offset-2">
+			<h1 class="title">
+		   	Everton
+		    </h1>
+		    <p>
+		    	<ul>
+		    	{% for info in guardian_everton %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		    <p>
+		    	<ul>
+		    	{% for info in bbc_everton %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		    <p>
+		    	<ul>
+		    	{% for info in telegraph_everton %}
+    				<li>
+    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
+    				</li>
+				{% empty %}
+				    <li>No articles yet.</li>
+				{% endfor %}
+				</ul>
+		    </p>
+		</div>
+	</div>
+{% endblock %} -->
+
+{% block content %}
+	<h1 class="title text-center">
+    Neutral News
+    </h1>
+	<div class="row">
+	</div>
+{% endblock %}

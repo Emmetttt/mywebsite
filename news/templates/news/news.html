@@ -30,82 +30,61 @@ $(".show-more a").on("click", function() {
 			<h1 class="title">
 		    International
 		    </h1>
-		    <div class="content hideContent">
-			    <p>
-			    	<ul>
-			    	{% for info in guardian_world %}
-	    				<li>
-	    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
-	    				</li>
-					{% empty %}
-					    <li>No articles yet.</li>
-					{% endfor %}
-					</ul>
-			    </p>
-			    <p>
-			    	<ul>
-			    	{% for info in bbc_world %}
-	    				<li>
-	    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
-	    				</li>
-					{% empty %}
-					    <li>No articles yet.</li>
-					{% endfor %}
-					</ul>
-			    </p>
-			    <p>
-			    	<ul>
-			    	{% for info in telegraph_world %}
-	    				<li>
-	    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
-	    				</li>
-					{% empty %}
-					    <li>No articles yet.</li>
-					{% endfor %}
-					</ul>
-				</p>
+		    <div>
+		    	<ul>
+			        {% if news_list %}
+					    {% for x in news_list %}
+					    	{% if x.tag == "world" %}
+					    		{% if x.source == "guardian" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "bbc" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "telegraph" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% endif %}
+						    {% endif %}
+					    {% endfor %}
+					{% else %}
+					    <p class="text-center">No news.</p>
+					{% endif %}
+				</ul>
 			</div>
-		    <div class="show-more">
-	        	<a href="#">Show more</a>
-	    	</div>
 		</div>
 		<div class="col-sm-5 col-sm-offset-2">
 			<h1 class="title">
 		    UK
 		    </h1>
-		    <p>
+		    <div>
 		    	<ul>
-		    	{% for info in guardian_uk %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
+			        {% if news_list %}
+					    {% for x in news_list %}
+					    	{% if x.tag == "uk" %}
+					    		{% if x.source == "guardian" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "bbc" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "telegraph" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% endif %}
+						    {% endif %}
+					    {% endfor %}
+					{% else %}
+					    <p class="text-center">No news.</p>
+					{% endif %}
 				</ul>
-		    </p>
-		    <p>
-		    	<ul>
-		    	{% for info in bbc_uk %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
-				</ul>
-		    </p>
-		    <p>
-		    	<ul>
-		    	{% for info in telegraph_uk %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
-				</ul>
-		    </p>
+			</div>
 		</div>
 		<div class="col-sm-12">
 		</div>
@@ -113,77 +92,63 @@ $(".show-more a").on("click", function() {
 			<h1 class="title">
 		    Football
 		    </h1>
-		    <p>
+		    <div>
 		    	<ul>
-		    	{% for info in guardian_football %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
+			        {% if news_list %}
+					    {% for x in news_list %}
+					    	{% if x.tag == "football" %}
+					    		{% if x.source == "guardian" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "bbc" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "telegraph" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% endif %}
+						    {% endif %}
+					    {% endfor %}
+					{% else %}
+					    <p class="text-center">No news.</p>
+					{% endif %}
 				</ul>
-		    </p>
-		    <p>
-		    	<ul>
-		    	{% for info in bbc_football %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
-				</ul>
-		    </p>
-		    <p>
-		    	<ul>
-		    	{% for info in telegraph_football %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
-				</ul>
-		    </p>
+			</div>
 		</div>
 		<div class="col-sm-5 col-sm-offset-2">
 			<h1 class="title">
-		   	Everton
+		    Everton
 		    </h1>
-		    <p>
+		    <div>
 		    	<ul>
-		    	{% for info in guardian_everton %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
+			        {% if news_list %}
+					    {% for x in news_list %}
+					    	{% if x.tag == "everton" %}
+					    		{% if x.source == "guardian" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://m1.mynewseye.com/favicon/www.theguardian.com" alt="guardian"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "bbc" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% elif x.source == "telegraph" %}
+						    		<li>
+								        <a href="{{ x.url }}" target="_blank"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="bbc"> {{ x.headline }}</a>
+							        </li>
+							    {% endif %}
+						    {% endif %}
+					    {% endfor %}
+					{% else %}
+					    <p class="text-center">No news.</p>
+					{% endif %}
 				</ul>
-		    </p>
-		    <p>
-		    	<ul>
-		    	{% for info in bbc_everton %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="https://bbc.com/favicon.ico" alt="bbc"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
-				</ul>
-		    </p>
-		    <p>
-		    	<ul>
-		    	{% for info in telegraph_everton %}
-    				<li>
-    				<a href="{{ info.url }}"><img src="http://shares.telegraph.co.uk/favicon.ico" alt="telegraph"> {{ info.headline }}</a>
-    				</li>
-				{% empty %}
-				    <li>No articles yet.</li>
-				{% endfor %}
-				</ul>
-		    </p>
+			</div>
 		</div>
 	</div>
 {% endblock %}
+<!-- 
+{% url 'polls:results' question.id %} -->
