@@ -135,21 +135,26 @@ def band_input(request):
     if request.method == "POST":
         Bform = BandForm(request.POST)
         if Bform.is_valid():
-            bandname = Bform.cleaned_data.get('band_input')
-            info = RetrieveInfo(Bform.cleaned_data.get('band_input'))
-            albumname = info[0]
-            albumscore = info[1]
-            albumdate = info[2]
-            data = info[3]
-            max_date = info[4]
-            min_date = info[5]
-            regression = info[6]
-            bandname = bandname.title()
-            Bandform = BandForm()
-            return render(request, 'music_grapher/graph.html', {'Bform': Bform, 'regression': regression, 'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
+            try:
+                bandname = Bform.cleaned_data.get('band_input')
+                info = RetrieveInfo(Bform.cleaned_data.get('band_input'))
+                albumname = info[0]
+                albumscore = info[1]
+                albumdate = info[2]
+                data = info[3]
+                max_date = info[4]
+                min_date = info[5]
+                regression = info[6]
+                bandname = bandname.title()
+                Bandform = BandForm()
+                return render(request, 'music_grapher/graph.html', {'Bform': Bform, 'regression': regression, 'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
+            except (NameError, AttributeError) as e:
+                ErrorMessage = 'Band name "' + bandname + '" not found, please try again.'
+                return render(request, 'music_grapher/index.html', {'Bform': Bform, 'Error': ErrorMessage})
+
     else:
         Bform = BandForm()
-    return render(request, 'music_grapher/index.html', {'Bform': Bform})
+    return render(request, 'music_grapher/index.html', {'Bform': Bform, 'Error': ''})
 
 
 

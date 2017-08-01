@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'blog',
     'music_grapher',
     'news',
+    'game',
+    'p4k',
 ]
 
 MIDDLEWARE_CLASSES = [

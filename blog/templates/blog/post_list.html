@@ -25,7 +25,7 @@
                     <a href="{% url 'post_specific' pk=post.pk %}">
                         {{ post.title }}
                     </a>
-                    </h1>
+                </h1>
 
                 <a href="{% url 'post_specific' pk=post.pk %}" class="read_more text-uppercase">Read More</a>
 
@@ -36,8 +36,6 @@
             <div class="col-md-7">
                 {% autoescape off %} {{ post.text|linebreaksbr }} {% endautoescape %}
             </div>
-            <!-- <div class="col-sm-2 text-sm-left blog_post_info">
-            </div> -->
         </article>
 
     {% endfor %}
@@ -47,13 +45,17 @@
 {% block bottom-nav %}
     <ul id="blog-navigation">
         <li><p id="blog-navigation" align="left">
-            <a href="#" id="white"> << Previous Page </a>
+            {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}" id="white"> << Previous Page </a>
+            {% endif %}
         </a></li>
         <li><p id="blog-navigation" align="center">
-            Page 1 of 1
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
         </p></li>
         <li><p id="blog-navigation" href="#" align="right">
-            <a href="#" id="white"> Next Page >> </a>
+            {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}" id="white"> Next Page >> </a>
+            {% endif %}
         </a></li>
     </ul>
 {% endblock %}
