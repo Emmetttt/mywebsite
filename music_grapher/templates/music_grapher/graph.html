@@ -11,6 +11,7 @@ $(function () {
         	title: {
         		text: 'Year'
         	},
+            startOnTick: false,
             min: {{ min_date }},
             max: {{ max_date }}
         },
@@ -19,8 +20,8 @@ $(function () {
         	title: {
         		text: 'Score'
         	},
-            min: 0,
-            max: 100
+            min: {{ min_score }},
+            max: {{ max_score }}
         },
 
         title: {

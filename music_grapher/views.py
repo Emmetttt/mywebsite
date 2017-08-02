@@ -82,6 +82,16 @@ def RetrieveInfo(name):
 
     max_date = max(albumYears) + 2
     min_date = min(albumYears) - 2 
+    
+    if min(albumScores) < 5:
+        min_score = min(albumScores)
+    else:
+        min_score = min(albumScores) - 5
+
+    if max(albumScores) > 95:
+        max_score = max(albumScores)
+    else:
+        max_score = max(albumScores) + 5
 
     ############REGRESSION LINE###########
     avgx = sum(albumYears)/len(albumYears)
@@ -128,7 +138,7 @@ def RetrieveInfo(name):
         k+=1
 
 
-    return albumNames, albumScores, albumYears, data, max_date, min_date, regression
+    return albumNames, albumScores, albumYears, data, max_date, min_date, regression, max_score, min_score
 
 
 def band_input(request):
@@ -145,9 +155,11 @@ def band_input(request):
                 max_date = info[4]
                 min_date = info[5]
                 regression = info[6]
+                max_score = info[7]
+                min_score = info[8]
                 bandname = bandname.title()
                 Bandform = BandForm()
-                return render(request, 'music_grapher/graph.html', {'Bform': Bform, 'regression': regression, 'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date})
+                return render(request, 'music_grapher/graph.html', {'Bform': Bform, 'regression': regression, 'bandname': bandname, 'albumname': albumname, 'albumscore': albumscore, 'albumdate': albumdate, 'data': data, 'max_date': max_date, 'min_date': min_date, 'min_score': min_score, 'max_score': max_score})
             except (NameError, AttributeError) as e:
                 ErrorMessage = 'Band name "' + bandname + '" not found, please try again.'
                 return render(request, 'music_grapher/index.html', {'Bform': Bform, 'Error': ErrorMessage})
