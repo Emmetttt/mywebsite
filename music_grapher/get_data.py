@@ -3,33 +3,74 @@ from bs4 import BeautifulSoup
 import re
 import time
 import requests
+import math
 
 def RetrieveInfo(name):
-    page = "http://www.metacritic.com/person/" + name
-    
+    name = name.lower() ##lowers all the capitals
+    nameDashed = name.replace(' ', '-') ##replace spaces with -
+    firstLetter = name.replace('the ', '') ##removes "the " so it can find the first letter of the first name
+    page = "http://www.albumoftheyear.org/artists/?id=" + firstLetter[0].upper() ##searches AOTY database for all beggining with first letter
+
     headers = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5)'}
     urllibpage = requests.get(page,headers=headers)
-    soup = BeautifulSoup(urllibpage.text, "lxml")
-    mydivs = soup.findAll("table", { "class" : "credits person_credits" })
-    mytrs = soup.findAll("tr")
-    #print(mytrs)
+    soup = BeautifulSoup(urllibpage.text, "html.parser")
+    Link = soup.find('a', href=re.compile('^/artist/[0-9]{1,7}-' + nameDashed)) ##Finds any link in the soup with can link to the beatles page
+    Name = re.search('\/artist\/[0-9]{1,7}-(.*?)\/', str(Link)).group(0) ##extracts the links from <a> using regex group(0) prints the first match
 
+
+    artistPage = 'http://www.albumoftheyear.org/' + Name ##load artist page directly
+    urllibpageA = requests.get(artistPage, headers=headers)
+    soupA = BeautifulSoup(urllibpageA.text, "html.parser")
+
+    albumYears = []
     albumNames = []
     albumScores = []
-    albumYears = []
+    albumLinks = []
+    art = []
+    data = []
 
-    for score in soup.findAll("span", { "class" : "metascore_w small release positive"}):
-        albumScores.append(score.string)
+    for dates in soupA.findAll('div', {"class" : "date"}):
+        albumYears.append(int(dates.text)) ##Change to integer from string so it can be graphed properly
+    
+    for titles in soupA.findAll('div', {"class" : "albumTitle"}):
+        name = titles.text
+        name = name.replace("'", "")
+        albumNames.append(name)
+        albumLink = "http://www.albumoftheyear.org" + titles.parent.get('href')
+        albumLinks.append(albumLink)
 
-    for year in soup.findAll("td", { "class" : "year" }):
-        alyear = year.string
-        albumYears.append(alyear.strip())
+    for albumArt in soupA.find_all('a'):
+        if albumArt.img:
+            print(albumArt.img['src'])
+            art.append(albumArt)
 
-    for name in soup.findAll("a", href=re.compile('^/music/')):
-        albumNames.append(name.string)
+    #print(art[1])
+    #print(albumLinks[1])
+    #print("http://cdn.albumoftheyear.org/album/2014/19205-popular-problems.jpg")
 
-    all_together = list(zip(albumNames[2:], albumScores, albumYears))
-    return all_together
+'''
+    for i in range(2):#len(albumLinks)):
+        albumArt = albumLinks[i]
+        print(albumArt)
+        albumArt.replace("www", "cdn")
+        albumArt.replace("php", "jpg")
+        albumArt.replace("album/", "album/"+str(albumYears[i]))
+        print(albumArt)
+        art.append(albumArt)
+'''
 
-def printtt(name):
-    return print(name)
+
+RetrieveInfo("Leonard Cohen")
+        
+    
+
+
+
+
+
+
+
+
+
+
+

@@ -13,6 +13,9 @@
     <h1 class="title text-center">
     {{ post.title }}
     </h1>
+    <h2 class="subtitle text-center">
+    {{ post.description }}
+    </h2>
     <div>
         {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>

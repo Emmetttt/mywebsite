@@ -177,7 +177,6 @@ footer {
 	float: right;
 	clear: both;
 	padding: 5px;
-	background-color: rgb(28, 31, 29);
 	color: white;
 	font-style: italic;
 	margin-top: 10px;
@@ -233,6 +232,17 @@ footer {
 	color: white;
 }
 
+
+.description {
+	font-size: 15pt;
+}
+/*SPECIFIC_POSTS*/
+
+.subtitle {
+	color:#656363;
+	font-size: 18pt;
+}
+
 ol {
 	background: #F2F2F2 repeat-y;
 	overflow:auto;
@@ -250,6 +260,7 @@ ol li {
 }
 ol code {
 	color:#036;
+	background:#F2F2F2;
 }
 
 
@@ -282,7 +293,6 @@ ol code {
 	float: right;
 	clear: both;
 	padding: 5px;
-	background-color: rgb(28, 31, 29);
 	color: white;
 	font-style: italic;
 	margin-top: 10px;

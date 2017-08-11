@@ -1,12 +1,14 @@
 from django.db import models
 from django.utils import timezone
+from ckeditor_uploader.fields import RichTextUploadingField 
+
 
 
 class Post(models.Model): #model saved in database
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200) #limited no characters
     description = models.CharField(max_length=400) #limited no characters
-    text = models.TextField() #unlimited numbers characters
+    text = RichTextUploadingField() #unlimited numbers characters
     tag = models.CharField(max_length=50)
     created_date = models.DateTimeField(
             default=timezone.now)
@@ -19,3 +21,4 @@ class Post(models.Model): #model saved in database
 
     def __str__(self): #we will get a string
         return self.title
+

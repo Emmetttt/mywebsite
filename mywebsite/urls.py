@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     url(r'^$', include('home.urls')),
@@ -23,5 +25,5 @@ urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^music_grapher/', include('music_grapher.urls')),
-    url(r'^news/', include('news.urls'))
-]
+    url(r'^news/', include('news.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
