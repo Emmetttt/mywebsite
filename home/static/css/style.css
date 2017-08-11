@@ -49,9 +49,16 @@ p {
 
 /* Header */
 
-#share_links li, #nav li{
+#share_links li{
 	display: inline-block;
 }
+
+@media print, screen and (min-width: 610px) {
+  #nav li{
+	display: inline-block;
+  }
+}
+
 header {
 	width: 100%;
 	padding-top: 35px;
@@ -151,7 +158,6 @@ footer {
 	margin-bottom: 30px;
 	border-top: solid 1px #7D7D7F;
 	padding-top: 30px;
-	height: 250px;
 	overflow-y: hidden;
 }
 
@@ -159,20 +165,67 @@ footer {
 	float: left;
 	padding-top: 0px;
 	padding-left: 0px;
+	padding-right: 5%;
 }
 .blog_post_title {
-	float: right;
 	font-size: 28px;
 }
+
+
 .date {
-	float: right;
-	clear: both;
 	font-size: 14px;
-	padding-top: 7px;
 }
 .date_specific {
 	margin-top: 30px;
 }
+
+.description {
+	display: inline-block;
+	font-style: italic;
+	font-size: 15pt;
+}
+
+/* SMALL SCREEN */
+@media print, screen and (max-width: 991px) {
+  .date{
+    text-align: center;
+    padding-left: 80px;
+	padding-top: 7px;
+  }
+  .blog_post_title{
+  	width: 100%;
+	text-align: center;
+	padding-bottom: 10px;
+  }
+  .blog_post_info{
+	display: inline-block;
+  	width: 100%;
+  }
+  .description{
+  	padding-top: 10px;
+	display: inline-block;
+  	width: 100%;
+  }
+}
+
+/* BIG SCREEN */
+@media print, screen and (min-width: 991px) {
+  .date{
+	float: right;
+	clear: both;
+  }
+  .blog_post_title{
+	padding-bottom: 10px;
+	float: right;
+  }
+  .blog_post_info{
+  	width: 25%;
+  }
+  .description{
+  	width: 70%;
+  }
+}
+
 .read_more {
 	float: right;
 	clear: both;
@@ -184,7 +237,6 @@ footer {
 .read_more:hover {
 	color: #CCCCCC;
 }
-
 
 
 
@@ -213,6 +265,10 @@ footer {
 	color: #b3b3b3;
 }
 
+#white {
+	color: white;
+}
+
 #prevpage {
 	text-align: left;
 	color: white;
@@ -224,18 +280,7 @@ footer {
 	width: 100%;
 }
 
-.description {
-	font-style: italic;
-}
 
-#white {
-	color: white;
-}
-
-
-.description {
-	font-size: 15pt;
-}
 /*SPECIFIC_POSTS*/
 
 .subtitle {
