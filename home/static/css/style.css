@@ -64,21 +64,48 @@ header {
 	padding-top: 35px;
 }
 
-
-#share_links {
-	padding-top: 15px;
-	float: right;
+/*SMALL SCREEN*/
+@media print, screen and (max-width: 480px) {
+	#share_links {
+		padding-top: 15px;
+    	text-align: center;
+	}
+	#share_links li {
+		padding-left: 10px;
+	}
+	#logo {
+		font-family: 'Playfair Display', serif;
+		font-style: italic;
+		font-weight: 700;
+		font-size: 50px;
+    	text-align: center;
+		padding-bottom: 15px;
+		padding-left: 10px;	
+	}
 }
+
+/*BIG SCREEN*/
+@media print, screen and (min-width: 480px) {
+	#share_links {
+		float: right;
+	}
+	#share_links li {
+		padding-left: 10px;
+		padding-top: 15px;
+		float: right;
+	}
+	#logo {
+		font-family: 'Playfair Display', serif;
+		font-style: italic;
+		font-weight: 700;
+		font-size: 50px;
+		float: left;
+		padding-bottom: 40px;
+	}
+}
+
 #share_links li {
 	padding-left: 10px;
-}
-#logo {
-	font-family: 'Playfair Display', serif;
-	font-style: italic;
-	font-weight: 700;
-	font-size: 50px;
-	float: left;
-	padding-bottom: 40px;
 }
 #share_links img {
 	opacity: .6;
@@ -307,6 +334,27 @@ ol code {
 	color:#036;
 	background:#F2F2F2;
 }
+
+
+/* MUSIC GRAPHER */
+
+@media print, screen and (max-width: 991px) {
+	.music_graph {
+	  	position: relative;
+		width: 100vw;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+
+	}
+}
+
+
+
+
+
+
 
 
 /*~~~~~ POLLS ~~~~~~*/

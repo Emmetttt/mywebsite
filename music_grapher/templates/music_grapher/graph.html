@@ -106,8 +106,10 @@ $(function () {
         <p>
         regression : {{ regression }}
         </p> -->
-	    <div id="container" style="width:100%; height:400px;"></div>	
-	    <br>
+        <div class="music_graph">
+    	    <div id="container" style="width:100%; height:400px;"></div>	
+	    </div>
+        <br>
 	    <br>    
 	    <form method="POST" class="post-form" align="center">{% csrf_token %}
 	        {{ Bform.as_p }}
