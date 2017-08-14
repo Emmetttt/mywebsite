@@ -16,6 +16,10 @@ a, a:active {
 	text-decoration: none;
 }
 
+.blog-link {
+	color: blue;
+}
+
 a:hover {
 	color: rgb(28, 31, 29);
 }
