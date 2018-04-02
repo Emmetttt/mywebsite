@@ -5,7 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Post(models.Model): #model saved in database
-    author = models.ForeignKey('auth.User')
+    author = models.ForeignKey('auth.User', on_delete=models.PROTECT)
     title = models.CharField(max_length=200) #limited no characters
     description = models.CharField(max_length=400) #limited no characters
     text = RichTextUploadingField() #unlimited numbers characters

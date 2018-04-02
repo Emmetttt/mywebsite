@@ -19,11 +19,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^$', include('home.urls')),
-    url(r'^home/', include('home.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^polls/', include('polls.urls')),
-    url(r'^blog/', include('blog.urls')),
-    url(r'^music_grapher/', include('music_grapher.urls')),
-    url(r'^news/', include('news.urls')),
+    url('', include('home.urls')),
+    url('home/', include('home.urls')),
+    url('admin/', admin.site.urls),
+    url('blog/', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

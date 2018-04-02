@@ -21,12 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0+0r#^=f$x+(l)z%_7jlu(1+)xj55e@dbsnjdxvx2k1)hsso+!'
+with open(os.path.join(BASE_DIR, 'mywebsite/etc/secret_key.txt')) as f:
+    SECRET_KEY = f.read().strip()
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'emmettmoore.co.uk', 'www.emmettmoore.co.uk']
 
 
 # Application definition
@@ -39,10 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'polls',
     'blog',
-    'music_grapher',
-    'news',
     'ckeditor',
     'ckeditor_uploader',
 ]

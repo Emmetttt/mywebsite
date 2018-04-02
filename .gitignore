@@ -4,3 +4,9 @@ myvenv
 db.sqlite3
 /static
 .DS_Store
+/tutorials
+/node_modules
+/media
+Pitchfork_Data.txt
+README.md
+Create a grapher app
